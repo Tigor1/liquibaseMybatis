@@ -1,0 +1,24 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ru.lid.liquibase.mappers.UserMapper">
+
+    <resultMap id="userMap" type="ru.lid.liquibase.entity.User">
+        <result property="id" column="id"/>
+        <result property="email" column="email"/>
+        <result property="firstName" column="first_name"/>
+        <result property="lastName" column="last_name"/>
+        <result property="password" column="password"/>
+        <result property="username" column="username"/>
+    </resultMap>
+
+
+    <insert id="insertUser">
+        INSERT INTO users(email, first_name, last_name, password, username)
+        VALUES (#{email}, #{firstName}, #{lastName}, #{password}, #{username});
+    </insert>
+
+    <select id="getUsers" resultType="ru.lid.liquibase.entity.User">
+        SELECT *
+        FROM users
+        ORDER BY id;
+    </select>
+</mapper>

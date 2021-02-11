@@ -1,0 +1,22 @@
+spring:
+  datasource:
+#    driver-class-name: org.postgresql.Driver
+    driver-class-name: org.h2.Driver
+#    url: jdbc:postgresql://localhost:5432/ONIT
+    url: jdbc:h2:file:C:/Users/igorl/IdeaProjects/liquibase/db/liquibase
+    username: igor
+    password: admin
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+
+  liquibase:
+    change-log: 'db.changelog/master-changelog.xml'
+    url: ${spring.datasource.url}
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+
+mybatis:
+  config-location: '
+  classpath:mybatis-config.xml'
